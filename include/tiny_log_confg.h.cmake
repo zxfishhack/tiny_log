@@ -1,0 +1,8 @@
+
+#ifndef TINY_LOG_TINY_LOG_CONFG_H
+#define TINY_LOG_TINY_LOG_CONFG_H
+
+#define TINY_LOG_LOG_LEVEL ${TINY_LOG_LEVEL}
+#define TINY_LOG_LOG_SECTION __attribute__ ((section ("${TINY_LOG_SECTION}")))
+
+#endif //TINY_LOG_TINY_LOG_CONFG_H
