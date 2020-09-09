@@ -19,6 +19,8 @@ include(<path_to_tiny_log>/tiny_log.cmake)
 
 4. implement `uint32_t GetTick()` and `int PutChar(char ch)`
 
+5. implement `TinyLogEnterHook()` and `TinyLogLeaveHook()` if concurrency.
+
 ### Details
 1. for float (`%[w].[fw]f`), there will not output frac part when fw is not exist or zero.
 2. log_ series MACRO are recommended when size is critical. all call that log level is less than setting will not link to target.
