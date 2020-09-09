@@ -18,7 +18,10 @@ TINY_LOG_LOG_SECTION void tiny_log(int logLevel, const char* fmt, ...) {
   if (logLevel < g_logLevel && logLevel < LOG_NONE) {
     return;
   }
-  TinyLogEnterHook();
+  // leave when enter hook return non-zero value.
+  if (TinyLogEnterHook() != 0) {
+    return;
+  }
   tiny_log_num(GetTick(), '0', 2, 8);
   PutChar(' ');
   PutChar(lvl_name[logLevel]);
@@ -227,8 +230,8 @@ TINY_LOG_LOG_SECTION __attribute__((weak)) int PutChar(char ch) {
   return ch;
 }
 
-TINY_LOG_LOG_SECTION void __attribute((weak)) TinyLogEnterHook() {
-
+TINY_LOG_LOG_SECTION int __attribute((weak)) TinyLogEnterHook() {
+  return 0;
 }
 
 TINY_LOG_LOG_SECTION void __attribute((weak)) TinyLogLeaveHook() {

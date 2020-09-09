@@ -17,7 +17,7 @@ extern "C" {
 
 uint32_t __attribute((weak)) GetTick();
 int __attribute((weak)) PutChar(char ch);
-void __attribute((weak)) TinyLogEnterHook();
+int __attribute((weak)) TinyLogEnterHook();
 void __attribute((weak)) TinyLogLeaveHook();
 
 void tiny_log(int logLevel, const char* fmt, ...);
