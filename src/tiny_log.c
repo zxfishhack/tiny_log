@@ -22,7 +22,7 @@ TINY_LOG_LOG_SECTION void tiny_log(int logLevel, const char* fmt, ...) {
   if (TinyLogEnterHook() != 0) {
     return;
   }
-  tiny_log_num(GetTick(), '0', 2, 8);
+  tiny_log_num(GetTick(), '0', 0, 8);
   PutChar(' ');
   PutChar(lvl_name[logLevel]);
   PutChar(':');
@@ -182,6 +182,7 @@ void tiny_log_num(uint32_t u32, uint8_t zero, uint32_t hexadecimal, uint32_t wid
   uint8_t *p, temp[INT32_LEN + 1];
   uint8_t len;
   p = temp + INT32_LEN;
+  *p = 0;
   if (hexadecimal == 0) {
     do {
       *--p = (char) (u32 % 10 + '0');
@@ -204,6 +205,7 @@ void tiny_log_num64(uint64_t u64, uint8_t zero, uint32_t hexadecimal, uint32_t w
   uint8_t *p, temp[INT64_LEN + 1];
   uint8_t len;
   p = temp + INT64_LEN;
+  *p = 0;
   if (hexadecimal == 0) {
     do {
       *--p = (char) (u64 % 10 + '0');
