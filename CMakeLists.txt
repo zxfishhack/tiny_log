@@ -18,6 +18,7 @@ endif ()
 
 message(STATUS "log level is ${TINY_LOG_LEVEL}")
 message(STATUS "enable float output ${ENABLE_FLOAT}")
+message(STATUS "${CMAKE_BINARY_DIR}")
 CONFIGURE_FILE(include/tiny_log_config.h.cmake include/config.h)
 set(TINY_SOURCES src/tiny_log.c)
 set(TINY_LOG_INCLUDE include)
