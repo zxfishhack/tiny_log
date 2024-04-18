@@ -9,8 +9,10 @@ endif ()
 option(TINY_LOG_ENABLE_FLOAT "enable float output" OFF)
 option(TINY_LOG_TEST "enable tiny log test" OFF)
 if (TINY_LOG_ENABLE_FLOAT)
+  message(STATUS "enable float output")
   set(TINY_LOG_ENABLE_FLOAT 1)
 else ()
+  message(STATUS "disable float output")
   set(TINY_LOG_ENABLE_FLOAT 0)
 endif ()
 
@@ -18,7 +20,6 @@ endif ()
 # tiny log end
 
 message(STATUS "log level is ${TINY_LOG_LEVEL}")
-message(STATUS "enable float output ${ENABLE_FLOAT}")
 if(TINY_LOG_SECTION)
   message(STATUS "custom section: ${TINY_LOG_SECTION}")
 endif ()
