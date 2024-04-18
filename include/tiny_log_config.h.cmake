@@ -9,8 +9,10 @@
 #define TL_EXPAND(VAL) TL_DO_EXPAND(VAL)
 #if TL_EXPAND(TINY_LOG_SECTION_NAME) != 1
 #define TINY_LOG_LOG_SECTION __attribute__ ((section (".${TINY_LOG_SECTION}")))
+#define TINY_LOG_LOG_SECTION_RO __attribute__ ((section (".${TINY_LOG_SECTION}.ro")))
 #else
 #define TINY_LOG_LOG_SECTION
+#define TINY_LOG_LOG_SECTION_RO
 #endif
 
 

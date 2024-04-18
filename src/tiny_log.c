@@ -5,7 +5,7 @@
 #include "tiny_log.h"
 #include <stdarg.h>
 
-static char * lvl_name = "DVIWEF";
+TINY_LOG_LOG_SECTION_RO static const char lvl_name[] = "DVIWEF";
 
 volatile int g_logLevel = TINY_LOG_LOG_LEVEL;
 
@@ -170,7 +170,7 @@ TINY_LOG_LOG_SECTION void tiny_log(int logLevel, const char* fmt, ...) {
   TinyLogLeaveHook();
 }
 
-TINY_LOG_LOG_SECTION static const char hex[2][16] = {
+TINY_LOG_LOG_SECTION_RO static const char hex[2][16] = {
   "0123456789abcdef",
   "0123456789ABCDEF",
 };
