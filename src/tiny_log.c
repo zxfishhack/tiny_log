@@ -173,7 +173,6 @@ TINY_LOG_LOG_SECTION_RO static const char hex[2][16] = {
 };
 
 #define INT32_LEN   (sizeof("-2147483648") - 1)
-#define INT64_LEN   (sizeof("-9223372036854775808") - 1)
 
 TINY_LOG_LOG_SECTION void tiny_log_num(uint32_t u32, uint8_t zero, uint32_t hexadecimal, uint32_t width) {
   uint8_t *p, temp[INT32_LEN + 1];
