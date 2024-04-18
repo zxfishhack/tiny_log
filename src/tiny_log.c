@@ -170,7 +170,7 @@ TINY_LOG_LOG_SECTION void tiny_log(int logLevel, const char* fmt, ...) {
   TinyLogLeaveHook();
 }
 
-static char hex[2][16] = {
+TINY_LOG_LOG_SECTION static const char hex[2][16] = {
   "0123456789abcdef",
   "0123456789ABCDEF",
 };
@@ -178,7 +178,7 @@ static char hex[2][16] = {
 #define INT32_LEN   (sizeof("-2147483648") - 1)
 #define INT64_LEN   (sizeof("-9223372036854775808") - 1)
 
-void tiny_log_num(uint32_t u32, uint8_t zero, uint32_t hexadecimal, uint32_t width) {
+TINY_LOG_LOG_SECTION void tiny_log_num(uint32_t u32, uint8_t zero, uint32_t hexadecimal, uint32_t width) {
   uint8_t *p, temp[INT32_LEN + 1];
   uint8_t len;
   p = temp + INT32_LEN;
@@ -201,7 +201,7 @@ void tiny_log_num(uint32_t u32, uint8_t zero, uint32_t hexadecimal, uint32_t wid
   }
 }
 #if TINY_LOG_ENABLE_FLOAT
-void tiny_log_num64(uint64_t u64, uint8_t zero, uint32_t hexadecimal, uint32_t width) {
+TINY_LOG_LOG_SECTION void tiny_log_num64(uint64_t u64, uint8_t zero, uint32_t hexadecimal, uint32_t width) {
   uint8_t *p, temp[INT64_LEN + 1];
   uint8_t len;
   p = temp + INT64_LEN;
