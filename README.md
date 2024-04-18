@@ -27,27 +27,32 @@ include(<path_to_tiny_log>/tiny_log.cmake)
 3. g_logLevel can be modify runtime log level.
 
 ### Flash & RAM Cost
+```
+cmake profile: Release
+cmake options:
+set(TINY_LOG_SECTION "tiny_log") // tiny
+set(TINY_LOG_ENABLE_FLOAT ON)
+gcc version: 
+-- The C compiler identification is GNU 13.2.1
+-- The CXX compiler identification is GNU 13.2.1
+```
 * Origin
 ```
 Memory region         Used Size  Region Size  %age Used
-             RAM:       11336 B        20 KB     55.35%
-           FLASH:       23660 B        64 KB     36.10%
+             RAM:       10320 B        20 KB     50.39%
+           FLASH:       34988 B        62 KB     55.11%
+        TINY_LOG:          0 GB         2 KB      0.00%
 ```
-* Using tiny_log (without float enable) [RAM: + 0B, Flash: + 608B]
-```
-Memory region         Used Size  Region Size  %age Used
-             RAM:       11336 B        20 KB     55.35%
-           FLASH:       24268 B        64 KB     37.03%
-```
-* Using tiny_log (with float enable) [RAM: + 0B, Flash: + 3,132B]
+* Using tiny_log (without float enable) [ RAM: +80B, Flash: +1,964B ]
 ```
 Memory region         Used Size  Region Size  %age Used
-             RAM:       11336 B        20 KB     55.35%
-           FLASH:       27400 B        64 KB     41.81%
+             RAM:       10400 B        20 KB     50.78%
+           FLASH:       36952 B        62 KB     58.20%
+        TINY_LOG:        1292 B         2 KB     63.09%
 ```
-* Using printf [RAM: + 1,456B, Flash: + 24,984B]
+* Using tiny_log (with float enable) [ RAM: +80B, Flash: +4,440B ]
 ```
 Memory region         Used Size  Region Size  %age Used
-             RAM:       12792 B        20 KB     62.46%
-           FLASH:       48644 B        64 KB     74.22%
-```         
+             RAM:       10400 B        20 KB     50.78%
+           FLASH:       39428 B        62 KB     62.10%
+        TINY_LOG:        1852 B         2 KB     90.43%      
