@@ -25,7 +25,7 @@ set(TINY_LOG_INCLUDE include)
 
 project(tiny_log)
 
-include_directories(${TINY_LOG_INCLUDE} ${CMAKE_BINARY_DIR}/include)
+include_directories(${TINY_LOG_INCLUDE} ${CMAKE_CURRENT_BINARY_DIR}/include)
 
 add_library(tiny_log ${TINY_SOURCES})
 add_executable(tiny_log_test test/funcs.cpp test/test.cpp)
