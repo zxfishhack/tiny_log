@@ -4,7 +4,6 @@
 
 #include "tiny_log.h"
 #include <stdarg.h>
-#include <math.h>
 
 TINY_LOG_LOG_SECTION_RO static const char lvl_name[] = "DVIWEF";
 
@@ -31,7 +30,7 @@ TINY_LOG_LOG_SECTION void tiny_log(int logLevel, const char* fmt, ...) {
   uint32_t width, sign, hex, frac_width, scale, n, len;
   int32_t i32;
   uint32_t u32, frac;
-  float f;
+  double f;
 
   while(*fmt) {
     if (*fmt == '%') {
@@ -95,13 +94,13 @@ TINY_LOG_LOG_SECTION void tiny_log(int logLevel, const char* fmt, ...) {
           }
           break;
         case 'f':
-          f = (float)va_arg(args, double);
+          f = va_arg(args, double);
 #if TINY_LOG_ENABLE_FLOAT
           if (f < 0) {
             PutChar('-');
             f = -f;
           }
-          uint64_t u64 = (uint64_t)(f);
+          uint64_t u64 = (int64_t) f;
           frac = 0;
 
           if (frac_width) {
@@ -110,7 +109,7 @@ TINY_LOG_LOG_SECTION void tiny_log(int logLevel, const char* fmt, ...) {
               scale *= 10;
             }
 
-            frac = lroundf((f - (float) u64) * ((float)scale));
+            frac = (uint64_t)((f - (float) u64) * scale + 0.5);
 
             if (frac == scale) {
               u64 ++;
