@@ -23,7 +23,7 @@ message(STATUS "log level is ${TINY_LOG_LEVEL}")
 if(TINY_LOG_SECTION)
   message(STATUS "custom section: ${TINY_LOG_SECTION}")
 endif ()
-CONFIGURE_FILE(include/tiny_log_config.h.cmake include/config.h)
+CONFIGURE_FILE(include/tiny_log_config.h.cmake include/tinylog_config.h)
 set(TINY_SOURCES src/tiny_log.c)
 set(TINY_LOG_INCLUDE include)
 
