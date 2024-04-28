@@ -153,7 +153,7 @@ TINY_LOG_LOG_SECTION void tiny_log(int logLevel, const char* fmt, ...) {
         }
       }
 
-      tiny_log_num(u32, zero, hex, frac_width);
+      tiny_log_num(u32, zero, hex, width);
 
       fmt ++;
     } else {
